@@ -1,5 +1,7 @@
 # array 数组容器
 
+[toc]
+
 - array 没有空间配置器
 
 - \# include \<array\> 原生数组的一个封装
@@ -165,13 +167,27 @@ a10.back();
 
 ## 6. 迭代器相关
 
-- 尺寸要匹配：
+详细见 `STL 02 迭代器`
+
+- 注意，array 尺寸要匹配：
 
 ```c++
-array<int, 10>::iterator it1 = a10.begin();
-array<int, 10>::const_iterator it2 = a10.cbegin();
-array<int, 10>::reverse_iterator it3 = a10.rbegin();
-array<int, 10>::const_reverse_iterator it4 = a10.crbegin();
+// begin() - end()
+array<int, 10>::iterator it1_begin = v11.begin();
+array<int, 10>::iterator it1_end() = v11.end();
+
+// cbegin() - cend()
+array<int, 10>::const_iterator it2_cbegin = v11.cbegin();
+array<int, 10>::const_iterator it2_cend = v11.cend();
+
+// rbegin() - rend()
+array<int, 10>::reverse_iterator it3_rbegin = v11.rbegin();
+array<int, 10>::reverse_iterator it3_rend = v11.rend();
+
+// crbegin() - crend()
+array<int, 10>::const_reverse_iterator it4_crbegin = v11.crbegin();
+array<int, 10>::const_reverse_iterator it4_crend = v11.crend();
+
 ```
 
 ## 7. 插入元素，`不存在`
@@ -196,6 +212,7 @@ array<char,10> a16 = {'a','b','c','\0'};
 printf("%s\n",a16.data()); // abc
 // printf("%s\n",a16.begin());	// Error
 printf("%s\n", &(*a16.begin()));
+// 行为像指针，但是所指对象的地址是 &* 迭代器
 ```
 
 
